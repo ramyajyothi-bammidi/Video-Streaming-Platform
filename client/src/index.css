@@ -1,0 +1,1233 @@
+@import "tailwindcss";
+
+/* -------------------------------------------------------
+   RESET
+------------------------------------------------------- */
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+}
+
+body{
+    min-height:100vh;
+}
+
+img,
+picture,
+video,
+canvas,
+svg{
+    display:block;
+    max-width:100%;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+button{
+    cursor:pointer;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+:focus{
+    outline:none;
+}
+
+/* -------------------------------------------------------
+   DESIGN TOKENS
+------------------------------------------------------- */
+
+:root{
+
+    --bg:#070707;
+    --bg-secondary:#0d0d0d;
+
+    --surface:#111111;
+
+    --card:#181818;
+    --card-2:#1d1d1d;
+
+    --border:rgba(255,255,255,.08);
+    --border-hover:rgba(255,255,255,.14);
+
+    --text:#ffffff;
+    --text-soft:rgba(255,255,255,.72);
+    --text-muted:rgba(255,255,255,.52);
+
+    --accent:#ef4444;
+    --accent-hover:#dc2626;
+
+    --shadow-sm:
+        0 4px 10px rgba(0,0,0,.18);
+
+    --shadow:
+        0 10px 30px rgba(0,0,0,.28);
+
+    --shadow-lg:
+        0 22px 60px rgba(0,0,0,.42);
+
+    --radius-sm:12px;
+    --radius:18px;
+    --radius-lg:24px;
+
+}
+
+/* -------------------------------------------------------
+   BODY
+------------------------------------------------------- */
+
+body{
+
+    background:
+
+        radial-gradient(
+            circle at top,
+            rgba(239,68,68,.14),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at bottom right,
+            rgba(255,255,255,.03),
+            transparent 40%
+        ),
+
+        var(--bg);
+
+    color:var(--text);
+
+    font-family:
+        Inter,
+        "Segoe UI",
+        sans-serif;
+
+    font-size:15px;
+
+    line-height:1.65;
+
+    font-weight:400;
+
+    letter-spacing:-0.01em;
+
+    -webkit-font-smoothing:antialiased;
+
+    text-rendering:optimizeLegibility;
+}
+
+/* -------------------------------------------------------
+   TYPOGRAPHY
+------------------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    font-weight:700;
+
+    line-height:1.15;
+
+    letter-spacing:-0.04em;
+
+    color:white;
+}
+
+h1{
+
+    font-size:clamp(2.25rem,5vw,4rem);
+}
+
+h2{
+
+    font-size:clamp(1.8rem,4vw,3rem);
+}
+
+h3{
+
+    font-size:1.4rem;
+}
+
+h4{
+
+    font-size:1.15rem;
+}
+
+p{
+
+    color:var(--text-soft);
+
+    line-height:1.75;
+}
+
+small{
+
+    color:var(--text-muted);
+}
+
+/* -------------------------------------------------------
+   SELECTION
+------------------------------------------------------- */
+
+::selection{
+
+    background:rgba(239,68,68,.35);
+
+    color:white;
+}
+
+/* -------------------------------------------------------
+   SCROLLBAR
+------------------------------------------------------- */
+
+::-webkit-scrollbar{
+
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+
+    background:#090909;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:
+
+        linear-gradient(
+            var(--accent),
+            #8b1f1f
+        );
+
+    border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:
+
+        linear-gradient(
+            #ff5555,
+            #a91f1f
+        );
+}
+
+/* =======================================================
+   INTERACTIVE ELEMENTS
+======================================================= */
+
+/* ---------- Global transitions ---------- */
+
+button,
+a,
+input,
+textarea,
+select,
+svg{
+
+    transition:
+        background-color .22s ease,
+        border-color .22s ease,
+        color .22s ease,
+        transform .18s ease,
+        box-shadow .22s ease,
+        opacity .22s ease;
+}
+
+/* ---------- Links ---------- */
+
+a{
+
+    color:inherit;
+}
+
+a:hover{
+
+    opacity:.95;
+}
+
+/* ---------- Buttons ---------- */
+
+button,
+a.bg-red-500,
+a.bg-red-600,
+a[class*="rounded"]{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:.65rem;
+
+    min-height:46px;
+
+    padding:.85rem 1.35rem;
+
+    border-radius:999px;
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    letter-spacing:-0.01em;
+
+    border:1px solid transparent;
+
+    user-select:none;
+
+    white-space:nowrap;
+}
+
+button:hover{
+
+    transform:translateY(-2px);
+}
+
+button:active{
+
+    transform:scale(.98);
+}
+
+/* ---------- Primary buttons ---------- */
+
+.bg-red-500,
+.bg-red-600{
+
+    background:
+        linear-gradient(
+            180deg,
+            #ef4444,
+            #dc2626
+        ) !important;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 8px 18px rgba(239,68,68,.22),
+        0 18px 40px rgba(239,68,68,.18);
+}
+
+.bg-red-500:hover,
+.bg-red-600:hover{
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 28px rgba(239,68,68,.28),
+        0 26px 48px rgba(239,68,68,.22);
+
+    filter:brightness(1.04);
+}
+
+/* ---------- Outline / Secondary buttons ---------- */
+
+.border{
+
+    border-color:
+        rgba(255,255,255,.08);
+}
+
+button[class*="border"]:hover{
+
+    background:
+        rgba(255,255,255,.05);
+}
+
+/* ---------- Disabled ---------- */
+
+button:disabled{
+
+    opacity:.55;
+
+    cursor:not-allowed;
+
+    transform:none;
+}
+
+/* =======================================================
+   INPUTS
+======================================================= */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    min-height:48px;
+
+    padding:.9rem 1rem;
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.04) !important;
+
+    border:
+        1px solid rgba(255,255,255,.08) !important;
+
+    border-radius:16px;
+
+    backdrop-filter:blur(10px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.02);
+}
+
+/* ---------- Placeholder ---------- */
+
+input::placeholder,
+textarea::placeholder{
+
+    color:
+        rgba(255,255,255,.42);
+}
+
+/* ---------- Hover ---------- */
+
+input:hover,
+textarea:hover,
+select:hover{
+
+    border-color:
+        rgba(255,255,255,.15) !important;
+}
+
+/* ---------- Focus ---------- */
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:
+        rgba(239,68,68,.75) !important;
+
+    background:
+        rgba(255,255,255,.055) !important;
+
+    box-shadow:
+
+        0 0 0 4px rgba(239,68,68,.14),
+
+        0 10px 25px rgba(0,0,0,.25);
+}
+
+/* ---------- Textarea ---------- */
+
+textarea{
+
+    min-height:130px;
+
+    resize:vertical;
+}
+
+/* ---------- Select ---------- */
+
+select{
+
+    cursor:pointer;
+}
+
+/* =======================================================
+   FOCUS RINGS
+======================================================= */
+
+:focus-visible{
+
+    outline:none;
+
+    box-shadow:
+        0 0 0 4px rgba(239,68,68,.18);
+}
+
+/* =======================================================
+   HOVER FEEL
+======================================================= */
+
+button:hover,
+input:hover,
+textarea:hover,
+select:hover{
+
+    transition-duration:.18s;
+}
+
+/* =======================================================
+   UTILITIES
+======================================================= */
+
+hr{
+
+    border:none;
+
+    height:1px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    margin:1.5rem 0;
+}
+
+/* =======================================================
+   SURFACES / CARDS
+======================================================= */
+
+/* Common Tailwind backgrounds */
+
+.bg-white\/5,
+.bg-white\/10,
+.bg-zinc-900,
+.bg-zinc-800,
+.bg-neutral-900,
+.bg-neutral-800,
+.bg-slate-900,
+.bg-slate-800,
+.bg-gray-900,
+.bg-\[\#181818\],
+[class*="bg-zinc-9"],
+[class*="bg-neutral-9"]{
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.025)
+        ) !important;
+
+    border:
+        1px solid rgba(255,255,255,.08) !important;
+
+    backdrop-filter:
+        blur(14px);
+
+    -webkit-backdrop-filter:
+        blur(14px);
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.20),
+        0 16px 40px rgba(0,0,0,.35),
+        inset 0 1px 0 rgba(255,255,255,.03);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease,
+        background .25s ease;
+}
+
+/* Card Hover */
+
+.bg-white\/5:hover,
+.bg-white\/10:hover,
+.bg-zinc-900:hover,
+.bg-zinc-800:hover,
+.bg-neutral-900:hover,
+.bg-neutral-800:hover,
+.bg-slate-900:hover,
+.bg-slate-800:hover,
+.bg-gray-900:hover,
+.bg-\[\#181818\]:hover{
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(255,255,255,.14) !important;
+
+    box-shadow:
+        0 6px 16px rgba(0,0,0,.24),
+        0 28px 60px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.04);
+}
+
+/* =======================================================
+   ROUNDED CORNERS
+======================================================= */
+
+.rounded{
+
+    border-radius:12px !important;
+}
+
+.rounded-lg{
+
+    border-radius:16px !important;
+}
+
+.rounded-xl{
+
+    border-radius:20px !important;
+}
+
+.rounded-2xl{
+
+    border-radius:24px !important;
+}
+
+.rounded-3xl{
+
+    border-radius:30px !important;
+}
+
+/* =======================================================
+   SHADOWS
+======================================================= */
+
+.shadow{
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.22) !important;
+}
+
+.shadow-md{
+
+    box-shadow:
+        0 16px 35px rgba(0,0,0,.28) !important;
+}
+
+.shadow-lg{
+
+    box-shadow:
+        0 24px 50px rgba(0,0,0,.34) !important;
+}
+
+.shadow-xl,
+.shadow-2xl{
+
+    box-shadow:
+        0 30px 70px rgba(0,0,0,.42) !important;
+}
+
+/* =======================================================
+   NAVBAR
+======================================================= */
+
+nav,
+header{
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    background:
+        rgba(10,10,10,.72);
+
+    border-bottom:
+        1px solid rgba(255,255,255,.05);
+}
+
+/* Sticky nav */
+
+.sticky,
+.fixed{
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+}
+
+/* =======================================================
+   SIDEBAR
+======================================================= */
+
+aside{
+
+    background:
+        rgba(15,15,15,.88);
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    border-right:
+        1px solid rgba(255,255,255,.05);
+}
+
+/* Sidebar items */
+
+aside a{
+
+    border-radius:14px;
+
+    transition:
+        background .2s ease,
+        transform .2s ease;
+}
+
+aside a:hover{
+
+    background:
+        rgba(255,255,255,.05);
+
+    transform:
+        translateX(3px);
+}
+
+/* =======================================================
+   BORDERS
+======================================================= */
+
+.border{
+
+    border-color:
+        rgba(255,255,255,.08) !important;
+}
+
+.border:hover{
+
+    border-color:
+        rgba(255,255,255,.14) !important;
+}
+
+/* =======================================================
+   TABLES
+======================================================= */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+}
+
+thead{
+
+    background:
+        rgba(255,255,255,.03);
+}
+
+th{
+
+    text-align:left;
+
+    font-weight:600;
+
+    padding:16px;
+}
+
+td{
+
+    padding:16px;
+
+    border-top:
+        1px solid rgba(255,255,255,.06);
+}
+
+tbody tr{
+
+    transition:
+        background .2s ease;
+}
+
+tbody tr:hover{
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+/* =======================================================
+   LISTS
+======================================================= */
+
+ul,
+ol{
+
+    padding-left:1.25rem;
+}
+
+li{
+
+    margin-bottom:.4rem;
+}
+
+/* =======================================================
+   BADGES
+======================================================= */
+
+[class*="badge"]{
+
+    border-radius:999px;
+
+    padding:.35rem .8rem;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.04);
+}
+
+/* =======================================================
+   DIVIDERS
+======================================================= */
+
+hr{
+
+    background:
+        rgba(255,255,255,.06);
+
+    border:none;
+
+    height:1px;
+}
+
+/* =======================================================
+   LAYOUT POLISH
+======================================================= */
+
+main{
+    animation:fadeIn .35s ease;
+}
+
+section{
+    position:relative;
+}
+
+section + section{
+    margin-top:1rem;
+}
+
+/* Better spacing inside common containers */
+
+.container,
+.max-w-7xl,
+.max-w-6xl,
+.max-w-5xl,
+.max-w-4xl{
+    width:100%;
+}
+
+/* =======================================================
+   FLEX & GRID
+======================================================= */
+
+.flex{
+    min-width:0;
+}
+
+.grid{
+    align-items:start;
+}
+
+/* Prevent text overflow */
+
+.min-w-0{
+    min-width:0;
+}
+
+/* =======================================================
+   IMAGES
+======================================================= */
+
+img{
+
+    border-radius:inherit;
+
+    object-fit:cover;
+
+    user-select:none;
+
+    -webkit-user-drag:none;
+}
+
+/* =======================================================
+   ICONS
+======================================================= */
+
+svg{
+
+    flex-shrink:0;
+
+    transition:
+        color .2s ease,
+        transform .2s ease;
+}
+
+/* =======================================================
+   HOVER POLISH
+======================================================= */
+
+button:hover svg{
+    transform:translateX(2px);
+}
+
+a:hover svg{
+    transform:translateX(2px);
+}
+
+/* =======================================================
+   TEXT
+======================================================= */
+
+strong{
+    color:white;
+    font-weight:600;
+}
+
+code{
+
+    padding:.2rem .45rem;
+
+    border-radius:8px;
+
+    background:rgba(255,255,255,.06);
+
+    font-size:.92em;
+}
+
+/* =======================================================
+   GLASS EFFECT
+======================================================= */
+
+.backdrop-blur,
+.backdrop-blur-md,
+.backdrop-blur-lg{
+
+    backdrop-filter:blur(16px);
+
+    -webkit-backdrop-filter:blur(16px);
+}
+
+/* =======================================================
+   COMMON TAILWIND COLORS
+======================================================= */
+
+.bg-black\/30,
+.bg-black\/40,
+.bg-black\/50{
+
+    backdrop-filter:blur(18px);
+
+    background:
+        rgba(10,10,10,.55) !important;
+}
+
+.bg-white\/5{
+
+    background:
+        rgba(255,255,255,.05) !important;
+}
+
+.bg-white\/10{
+
+    background:
+        rgba(255,255,255,.08) !important;
+}
+
+/* =======================================================
+   COMMON BORDER COLORS
+======================================================= */
+
+.border-white\/10{
+    border-color:rgba(255,255,255,.08)!important;
+}
+
+.border-white\/20{
+    border-color:rgba(255,255,255,.14)!important;
+}
+
+/* =======================================================
+   SCROLLABLE AREAS
+======================================================= */
+
+.overflow-auto,
+.overflow-y-auto{
+
+    scrollbar-width:thin;
+}
+
+/* =======================================================
+   LOADING PLACEHOLDER
+======================================================= */
+
+.animate-pulse{
+
+    animation:
+        premiumPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes premiumPulse{
+
+    0%{
+        opacity:.45;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:.45;
+    }
+
+}
+
+/* =======================================================
+   PAGE FADE
+======================================================= */
+
+@keyframes fadeIn{
+
+    from{
+
+        opacity:0;
+
+        transform:
+            translateY(8px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:none;
+
+    }
+
+}
+
+/* =======================================================
+   REDUCED MOTION
+======================================================= */
+
+@media (prefers-reduced-motion: reduce){
+
+    *,
+    *::before,
+    *::after{
+
+        animation:none !important;
+
+        transition:none !important;
+
+        scroll-behavior:auto !important;
+    }
+
+}
+
+/* =======================================================
+   MOBILE
+======================================================= */
+
+@media (max-width:768px){
+
+    body{
+
+        font-size:14px;
+    }
+
+    h1{
+
+        font-size:2rem;
+    }
+
+    h2{
+
+        font-size:1.6rem;
+    }
+
+    h3{
+
+        font-size:1.25rem;
+    }
+
+    button{
+
+        min-height:44px;
+
+        padding:.8rem 1.15rem;
+    }
+
+    input,
+    textarea,
+    select{
+
+        min-height:46px;
+    }
+
+}
+
+/* =======================================================
+   FINAL POLISH
+======================================================= */
+
+::selection{
+
+    background:
+        rgba(239,68,68,.30);
+
+    color:white;
+}
+
+html{
+
+    overflow-y:scroll;
+}
+
+body{
+
+    overflow-x:hidden;
+}
+
+*{
+
+    -webkit-tap-highlight-color:transparent;
+}
+
+
+/* =======================================================
+   GLOBAL CARD / COMPONENT SPACING FIX
+======================================================= */
+
+/* Give page content breathing room */
+
+main {
+    padding: 1.5rem;
+}
+
+
+/* Grid layouts containing cards */
+
+main .grid {
+    gap: 1.5rem !important;
+}
+
+
+/* Flex layouts containing repeated blocks */
+
+main .flex-wrap {
+    gap: 1.25rem !important;
+}
+
+
+/* Vertical stacks */
+
+main .space-y-1 > * + *,
+main .space-y-2 > * + *,
+main .space-y-3 > * + *,
+main .space-y-4 > * + *,
+main .space-y-5 > * + *,
+main .space-y-6 > * + * {
+
+    margin-top:0 !important;
+}
+
+
+/* Replace cramped Tailwind gaps */
+
+main .gap-1 {
+    gap:.5rem !important;
+}
+
+main .gap-2 {
+    gap:.75rem !important;
+}
+
+main .gap-3 {
+    gap:1rem !important;
+}
+
+main .gap-4 {
+    gap:1.25rem !important;
+}
+
+
+/* Cards get internal breathing room */
+
+.bg-\[\#181818\],
+.bg-zinc-900,
+.bg-neutral-900,
+.bg-gray-900 {
+
+    padding:1.5rem !important;
+}
+
+
+/* Dashboard/stat cards */
+
+.bg-\[\#181818\] + .bg-\[\#181818\],
+.bg-zinc-900 + .bg-zinc-900,
+.bg-neutral-900 + .bg-neutral-900 {
+
+    margin-top:1.5rem;
+}
+
+
+/* Sections breathe */
+
+main section {
+
+    margin-bottom:2rem;
+}
+
+
+/* Headings don't stick to content */
+
+main h1,
+main h2,
+main h3 {
+
+    margin-bottom:1rem;
+}
+
+
+/* Paragraph spacing */
+
+main p {
+
+    margin-bottom:.75rem;
+}
+
+
+/* Mobile adjustment */
+
+@media(max-width:768px){
+
+    main {
+
+        padding:1rem;
+    }
+
+
+    main .grid {
+
+        gap:1rem !important;
+    }
+
+
+    .bg-\[\#181818\],
+    .bg-zinc-900,
+    .bg-neutral-900,
+    .bg-gray-900 {
+
+        padding:1rem !important;
+    }
+
+}
