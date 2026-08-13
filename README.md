@@ -1,7 +1,3 @@
-Absolutely. Below is the **complete README.md**, rewritten to match the actual **PhotoTube** design shown in your screenshots, while keeping the same format as your Social Media Feed README.
-
-You can copy everything below directly into your project's `README.md`.
-
 # 🎬 PhotoTube – Video Streaming Platform
 
 A modern and responsive **Video Streaming Platform** called **PhotoTube**, developed using the **MERN Stack**. The platform allows users to register and log in, discover videos, search for content, browse videos by category, upload videos, watch video content, interact with videos, and manage uploaded content through a personalized dashboard.
