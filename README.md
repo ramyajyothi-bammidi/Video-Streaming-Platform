@@ -1,4 +1,4 @@
-Absolutely. Here is the **full updated `README.md`** for your **Video Streaming Platform**, using the **exact screenshot filenames** you showed:
+
 
 * `Register.png`
 * `dashboard.png`
