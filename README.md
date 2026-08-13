@@ -1,13 +1,4 @@
 
-
-* `Register.png`
-* `dashboard.png`
-* `latest_videos.jpeg`
-* `upload.jpeg`
-
-The screenshot paths are also set correctly so the images should appear **directly on GitHub**.
-
-````markdown
 # 🎬 Video Streaming Platform
 
 A modern and responsive **Video Streaming Platform** developed as part of the **CodTech IT Solutions Internship**. The application provides users with an interactive platform to browse, explore, and access video content through a clean and user-friendly interface.
