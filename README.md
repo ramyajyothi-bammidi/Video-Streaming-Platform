@@ -423,28 +423,6 @@ This project was developed for **educational and internship purposes** under **C
 
 ````
 
-### ✅ Your screenshot section is now correctly configured
 
-Because your GitHub repository has:
-
-```text
-screenshots/
-├── Register.png
-├── dashboard.png
-├── latest_videos.jpeg
-└── upload.jpeg
-````
-
-the README uses:
-
-```markdown
-![Registration Page](./screenshots/Register.png)
-
-![Dashboard](./screenshots/dashboard.png)
-
-![Latest Videos](./screenshots/latest_videos.jpeg)
-
-![Upload Page](./screenshots/upload.jpeg)
 ```
 
-So after you **commit/push this updated README**, GitHub should display the four actual screenshots directly instead of showing broken image links.
